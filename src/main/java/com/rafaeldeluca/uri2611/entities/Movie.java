@@ -20,6 +20,25 @@ public class Movie {
 	
 	public Movie() {
 	}
+	
+	
+
+	public Movie(Long id, String name) {
+		
+		this.id = id;
+		this.name = name;
+		
+	}
+	
+	
+
+
+	public Movie(Long id, String name, Genre genre) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.genre = genre;
+	}
 
 	public Long getId() {
 		return id;

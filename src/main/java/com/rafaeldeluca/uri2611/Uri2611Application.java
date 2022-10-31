@@ -47,7 +47,13 @@ public class Uri2611Application implements CommandLineRunner {
 			System.out.println(object);
 		}
 		
+		List<MovieDTO> movieList3 = repository.searchJPQL("Action");
+				
 		
+		System.out.println("\nRESULTADO JPQL");
+		for(MovieDTO nickname : movieList3) {
+			System.out.println(nickname);
+		}
 		
 	}
 }
