@@ -6,20 +6,25 @@ public class MovieDTO {
 	
 	private Long id;
 	private String name;
+	private String genre;
 	 
 	public MovieDTO () {
 		
 	}
 
-	public MovieDTO(Long id, String name) {
+	public MovieDTO(Long id, String name, String genre) {
 		
 		this.id = id;
 		this.name = name;
-	}
+		this.genre = genre;		
+	}	
 	
-	public MovieDTO(MovieIdNameProjection projection) {
+	
+
+	public MovieDTO(MovieIdNameProjection projection ) {
 		this.id = projection.getId();
 		this.name = projection.getName();
+		this.genre = projection.getGenre();
 	}
 
 	public Long getId() {
@@ -37,16 +42,20 @@ public class MovieDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 
 	@Override
 	public String toString() {
-		return "Movie [id= " + id + ", Nome do filme= " + name + "]";
-	}
-	
-	
-	
-	
-	
-	
+		return "Movie [id= " + id + ", Nome= " + name + ", gênero= " + genre + "]";
+	}	
+
 
 }

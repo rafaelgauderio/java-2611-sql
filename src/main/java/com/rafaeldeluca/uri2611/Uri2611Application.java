@@ -9,11 +9,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.rafaeldeluca.uri2611.dto.MovieDTO;
+import com.rafaeldeluca.uri2611.entities.Genre;
 import com.rafaeldeluca.uri2611.projections.MovieIdNameProjection;
+import com.rafaeldeluca.uri2611.repositories.GenreRepository;
 import com.rafaeldeluca.uri2611.repositories.MovieRepository;
 
 @SpringBootApplication
 public class Uri2611Application implements CommandLineRunner {
+	
+	@Autowired
+	private GenreRepository genreRepository;
 	
 	@Autowired
 	private MovieRepository repository;	
@@ -23,8 +28,7 @@ public class Uri2611Application implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
-		
+	public void run(String... args) throws Exception {		
 		
 		List<MovieIdNameProjection> movieList = repository.search1("Action");
 		List<MovieDTO> resultMovie = movieList.stream().map(x -> new MovieDTO(x)).collect(Collectors.toList());
